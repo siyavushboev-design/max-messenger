@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAX Messenger</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #edf4fa;
+}
+header {
+  background: #168de2;
+  color: white;
+  padding: 20px;
+  font-size: 26px;
+  font-weight: bold;
+}
+main {
+  padding: 20px;
+}
+.chat {
+  background: white;
+  border-radius: 16px;
+  padding: 15px;
+  min-height: 350px;
+}
+.message {
+  background: #d9efff;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+}
+form {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+input {
+  flex: 1;
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+}
+button {
+  background: #168de2;
+  color: white;
+  border: none;
+  padding: 13px;
+  border-radius: 12px;
+}
+</style>
+</head>
+<body>
+<header>MAX</header>
+<main>
+<h2>Мои сообщения</h2>
+<div class="chat" id="chat">
+<div class="message">Добро пожаловать в MAX!</div>
+</div>
+<form id="form">
+<input id="message" placeholder="Напишите сообщение..." required>
+<button type="submit">➤</button>
+</form>
+</main>
+<script>
+const form = document.getElementById("form");
+const input = document.getElementById("message");
+const chat = document.getElementById("chat");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const msg = document.createElement("div");
+  msg.className = "message";
+  msg.textContent = input.value;
+  chat.appendChild(msg);
+  input.value = "";
+});
+</script>
+</body>
+</html>
